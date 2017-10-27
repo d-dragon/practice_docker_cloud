@@ -5,7 +5,7 @@ FROM node:4-onbuild
 WORKDIR /NodejsWebApp1
 
 # Copy the current directory contents into the container at 
-ADD . /app
+#ADD . /app
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
