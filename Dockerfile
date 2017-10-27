@@ -2,7 +2,7 @@
 FROM node:4-onbuild
 
 #Working directory
-WORKDIR /NodejsWebApp1
+#WORKDIR /NodejsWebApp1
 
 # Copy the current directory contents into the container at 
 #ADD . /app
