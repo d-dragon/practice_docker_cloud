@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    image: dustinphan/practice_docker_cloud:web
+    build:
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.05"
+          memory: 200M
+      restart_policy:
+        condition: on-failure
+    ports:
+     - 8080:80
+    networks:
+     - backend
+networks:
+  backend:
