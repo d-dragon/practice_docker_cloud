@@ -1,10 +1,9 @@
 version: '3'
 services:
   web:
-    image: dustinphan/practice_docker_cloud:web
-    build:
+    image: dustinphan/practice_docker_cloud:web0-oct-31
     deploy:
-      replicas: 2
+      replicas: 2 # used for load balancing
       resources:
         limits:
           cpus: "0.05"
@@ -12,8 +11,4 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-     - 8080:80
-    networks:
-     - backend
-networks:
-  backend:
+      - "8080:80"
