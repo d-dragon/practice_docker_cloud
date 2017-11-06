@@ -13,7 +13,7 @@ services:
     ports:
       - "80:80"
   visualizer:
-    image: dockersamples/visulizer:stable
+    image: dockersamples/visualizer:stable
     ports:
       - "8080:8080"
     volumes:
@@ -21,3 +21,13 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - /home/docker/data:/data
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    command: redis-server --appendonly yes
