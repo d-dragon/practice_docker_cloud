@@ -3,7 +3,7 @@ services:
   web:
     image: dustinphan/practice_docker_cloud:web0-oct-31
     deploy:
-      replicas: 2 # used for load balancing
+      replicas: 5 # used for load balancing
       resources:
         limits:
           cpus: "0.05"
@@ -11,4 +11,13 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "8080:80"
+      - "80:80"
+  visualizer:
+    image: dockersamples/visulizer:stable
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
